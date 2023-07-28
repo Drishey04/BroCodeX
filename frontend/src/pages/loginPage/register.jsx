@@ -13,6 +13,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
 
 function Copyright(props) {
   return (
@@ -34,10 +36,35 @@ const defaultTheme = createTheme();
 const RegisterPage = () => {
 
   const navigate = useNavigate();
+  const [user, setUser] = useState({
+    username: '',
+    email: '',
+    password: ""
+  })
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    // const bodyData = JSON.stringify(event.currentTarget);
+    console.log(data);
+
+    axios({
+        method: "post",
+        url: "http://localhost:5000/api/users/register",
+        data: data,
+        headers: { "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*',
+        },
+      })
+        .then(function (response) {
+          //handle success
+          console.log(response);
+        })
+        .catch(function (response) {
+          //handle error
+          console.log(response);
+        });
+
     console.log({
       username: data.get('username'),
       email: data.get('email'),
@@ -86,7 +113,7 @@ const RegisterPage = () => {
                 fullWidth
                 id="username"
                 label="Username"
-                name="email"
+                name="username"
                 autoComplete="username"
                 autoFocus
               />

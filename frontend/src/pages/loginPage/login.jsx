@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Copyright(props) {
   return (
@@ -38,10 +39,29 @@ const LoginPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    
+    axios({
+        method: "post",
+        url: "http://localhost:5000/api/users/login",
+        data: data,
+        headers: { "Content-Type": "application/json" },
+      })
+        .then(function (response) {
+          //handle success
+          console.log(response);
+        })
+        .catch(function (response) {
+          //handle error
+          console.log(response);
+        });
+
     console.log({
       username: data.get('username'),
       password: data.get('password'),
     });
+
+    
+
   };
 
   return (
