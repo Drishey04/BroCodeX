@@ -6,8 +6,10 @@ import LoginPage from "./pages/loginPage/login";
 function App() {
   return (
     <div className="App">
+
       <BrowserRouter>
       <Routes>
+
         <Route path='/' element={<HomePage/>}/>
         <Route path='/login' element={<LoginPage/>}/>
       </Routes>
