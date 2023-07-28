@@ -1,4 +1,3 @@
-const asyncHandler = require("express-async-handler");
 const Pin = require('../models/pinModel');
 
 const createPin = async (req, res) => {
