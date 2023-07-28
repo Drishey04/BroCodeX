@@ -19,7 +19,7 @@ function Copyright(props) {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Travel Planner Pro
+        Your Website
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -31,7 +31,7 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-const LoginPage = () => {
+const RegisterPage = () => {
 
   const navigate = useNavigate();
 
@@ -40,6 +40,7 @@ const LoginPage = () => {
     const data = new FormData(event.currentTarget);
     console.log({
       username: data.get('username'),
+      email: data.get('email'),
       password: data.get('password'),
     });
   };
@@ -79,7 +80,7 @@ const LoginPage = () => {
               Sign in
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-            <TextField
+              <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -87,6 +88,16 @@ const LoginPage = () => {
                 label="Username"
                 name="email"
                 autoComplete="username"
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
                 autoFocus
               />
               <TextField
@@ -109,7 +120,7 @@ const LoginPage = () => {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Sign Up
               </Button>
               <Grid container>
                 <Grid item xs>
@@ -118,8 +129,8 @@ const LoginPage = () => {
                   </Link> */}
                 </Grid>
                 <Grid item>
-                  <Link href="/register" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                  <Link href="/login" variant="body2">
+                    {"Have an existing account? Sign in"}
                   </Link>
                 </Grid>
               </Grid>
@@ -132,4 +143,4 @@ const LoginPage = () => {
   );
 }
 
-export default LoginPage;
+export default RegisterPage;
