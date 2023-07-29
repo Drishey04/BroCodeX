@@ -3,8 +3,15 @@ import "./NavBar.scss";
 import { Link } from "react-router-dom";
 import brandLogo from "../../assets/brandLogo.jpg";
 import profilePic from "../../assets/profilePic.png";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 
-const NavBar = () => {
+const NavBarLogged = () => {
+  const username  = useSelector((state) => state.username);
+  const [status, setStatus] = useState(`${username}`);
+  console.log(username);
+  
+
   return (
     <nav>
       <div className="branding">
@@ -27,10 +34,10 @@ const NavBar = () => {
       </div>
       <Link to={"/login"} className="login">
         <img src={profilePic} alt="profile photo" />
-        <p>Login</p>
+        <p>{status}</p>
       </Link>
     </nav>
   );
 };
 
-export default NavBar;
+export default NavBarLogged;

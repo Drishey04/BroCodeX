@@ -14,6 +14,10 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from "react-redux";
+import { setLogin } from "../../state/index";
+
+
 
 function Copyright(props) {
   return (
@@ -35,34 +39,37 @@ const defaultTheme = createTheme();
 const LoginPage = () => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    
+    console.log(data);
+
     axios({
-        method: "post",
-        url: "http://localhost:5000/api/users/login",
-        data: data,
-        headers: { "Content-Type": "application/json" },
+      method: "post",
+      url: "http://localhost:5000/api/users/login",
+      data: data,
+      headers: { "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': '*', },
+    })
+      .then(function (response) {
+        //handle success
+        const username = response.data.username
+        dispatch(setLogin({username: username}));
+        console.log(response);
+        navigate('/home');
       })
-        .then(function (response) {
-          //handle success
-          console.log(response);
-        })
-        .catch(function (response) {
-          //handle error
-          console.log(response);
-        });
+      .catch(function (response) {
+        //handle error
+        console.log(response);
+      });
 
-    console.log({
-      username: data.get('username'),
-      password: data.get('password'),
-    });
-
-    
-
-  };
+      console.log({
+        username: data.get('username'),
+        password: data.get('password'),
+      });
+  }
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -105,7 +112,7 @@ const LoginPage = () => {
                 fullWidth
                 id="username"
                 label="Username"
-                name="email"
+                name="username"
                 autoComplete="username"
                 autoFocus
               />

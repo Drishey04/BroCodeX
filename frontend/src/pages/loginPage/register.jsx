@@ -59,6 +59,7 @@ const RegisterPage = () => {
         .then(function (response) {
           //handle success
           console.log(response);
+          navigate('/login');
         })
         .catch(function (response) {
           //handle error
