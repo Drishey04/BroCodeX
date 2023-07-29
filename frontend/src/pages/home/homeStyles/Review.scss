@@ -1,0 +1,24 @@
+
+
+.reviewPage{
+    width: 100%;
+    .reviewHeading{
+        width: 100%;
+        display: flex;
+
+        .flipArrowImage{
+            width: 15%;
+        }
+
+        p{  
+            width: 50%;
+            font-weight: 700;
+        }
+
+        .arrowImage{
+            max-width:15%;
+        }
+
+
+    }
+}
