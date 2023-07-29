@@ -1,14 +1,18 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import Home from "./pages/home/Home";
-import NavBar from "./pages/navbar/NavBar";
+
+import HomePage from "./pages/homePage/home";
+import LoginPage from "./pages/loginPage/login";
 
 function App() {
+  const theme = useMemo(() => createTheme(themeSettings("light")));
+  const isAuth = Boolean(useSelector((state) => state.token));
+
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </div>
