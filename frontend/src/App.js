@@ -10,6 +10,7 @@ import Home from "./pages/home/Home";
 import HomeLogged from "./pages/home/HomeLogged";
 import Product from "./pages/productPage/Product";
 import ContactPage from "./pages/contactPage/contactPage";
+import Itinerary from "./pages/itinerary/itinerary";
 
 function App() {
   const theme = useMemo(() => createTheme(themeSettings("light")));
@@ -25,6 +26,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/product" element={<Product />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/itinerary" element={<Itinerary/>} />
         </Routes>
       </BrowserRouter>
     </div>
