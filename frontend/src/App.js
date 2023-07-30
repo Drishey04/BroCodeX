@@ -8,6 +8,7 @@ import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import Home from "./pages/home/Home";
 import HomeLogged from "./pages/home/HomeLogged";
+import ContactPage from "./pages/contactPage/contactPage";
 
 function App() {
   const theme = useMemo(() => createTheme(themeSettings("light")));
@@ -21,6 +22,7 @@ function App() {
           <Route path="/home" element={<HomeLogged />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </BrowserRouter>
     </div>
