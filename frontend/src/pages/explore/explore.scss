@@ -1,0 +1,114 @@
+.explorePage{
+
+
+    .searchBar{
+        margin-top: 50px;
+        width: 100%;
+              
+        .textField{
+            width: 100%;
+        }
+    }
+
+    .filter{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 20px 0;
+
+        .filterText{
+            text-decoration: none;
+            width: 25%;
+            padding: 10px 25px;
+            border: 1px solid rgba(24, 20, 20, 0.281);
+            border-radius: 10px;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.679);
+            text-align: center;
+            font-size: large;
+            font-weight: 600;
+            background-color: cadetblue;
+
+        &:hover{
+          background-color:rgb(78, 150, 212);
+          font-weight: 500;
+      }
+  }
+}
+
+.cardSection{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .exploreCard{
+        width: 25vw;   
+        border: 2px solid rgba(0, 0, 0, 0.126);  
+        margin-bottom: 30px;  
+        border-radius: 10px; 
+
+        img{
+            max-width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .details{
+            padding: 10px;
+
+            h2{
+                font-size: x-large;
+                font-weight: 600;
+                letter-spacing: 2px;
+            }
+
+            .midSection{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 10px 0;
+
+                .expense{
+                    display: flex;
+                    width: 50px;
+                    align-items: center;
+                }
+
+                .rating{
+                    display: flex;
+                    width: 50px;
+                    align-items: center;
+                    flex-direction: row-reverse;
+                    font-size: larger;
+
+                    p{
+                        padding: 0 5px;
+                    }
+                }
+            }
+
+            .lastSection{
+                display: flex;
+                padding: 5px 10px;
+                align-items: center;
+                justify-content: space-between;
+
+
+                .likeIcon{
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .shareIcon{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+    }
+}
+}
